@@ -20,8 +20,7 @@ class _SettingsState extends State<Settings> {
         Navigator.pushNamed(context, MyRoutes.settingsRoute);
         setState(() {});
       },
-      child: Icon(CupertinoIcons.settings,
-          color: isTap ? Colors.red : context.accentColor),
+      child: Icon(CupertinoIcons.settings, color: context.accentColor),
     );
   }
 }

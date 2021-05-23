@@ -1,4 +1,3 @@
-import 'package:cryptobaazi/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -20,8 +19,7 @@ class _HomeWidgetState extends State<HomeWidget> {
         Navigator.pushNamed(context, MyRoutes.landingRoute);
         setState(() {});
       },
-      child: Icon(Icons.home_rounded,
-          color: isTap ? Colors.red : context.accentColor),
+      child: Icon(Icons.home_rounded, color: context.accentColor),
     ).px16();
   }
 }
