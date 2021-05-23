@@ -6,11 +6,6 @@ import 'homepage_widgets/list_all.dart';
 import 'homepage_widgets/settings.dart';
 
 class MainBar extends StatelessWidget {
-  const MainBar({
-    Key key,
-  }) : super(key: key);
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
