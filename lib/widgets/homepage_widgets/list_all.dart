@@ -16,8 +16,7 @@ class _PortfolioState extends State<Portfolio> {
         isTap.toggle();
         setState(() {});
       },
-      child: Icon(CupertinoIcons.graph_square,
-          color: isTap ? Colors.red : context.accentColor),
+      child: Icon(CupertinoIcons.graph_square, color: context.accentColor),
     );
   }
 }

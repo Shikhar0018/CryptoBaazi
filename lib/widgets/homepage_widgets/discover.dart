@@ -16,8 +16,7 @@ class _DiscoverState extends State<Discover> {
         isTap.toggle();
         setState(() {});
       },
-      child: Icon(CupertinoIcons.compass_fill,
-          color: isTap ? Colors.red : context.accentColor),
+      child: Icon(CupertinoIcons.compass_fill, color: context.accentColor),
     ).px16();
   }
 }
