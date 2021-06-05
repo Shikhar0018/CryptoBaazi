@@ -8,22 +8,22 @@ class CoinsModel {
 }
 
 class Coins {
-  final int id;
+  final String id;
   final String symbol;
   final String name;
   final String nameid;
   final int rank;
-  final double price_usd;
-  final double percent_change_24h;
-  final double percent_change_1h;
-  final double percent_change_7d;
-  final double price_btc;
-  final double market_cap_usd;
+  final String price_usd;
+  final String percent_change_24h;
+  final String percent_change_1h;
+  final String percent_change_7d;
+  final String price_btc;
+  final String market_cap_usd;
   final double volume24;
   final double volume24a;
-  final double csupply;
-  final double tsupply;
-  final double msupply;
+  final String csupply;
+  final String tsupply;
+  final String msupply;
 
   Coins({
     required this.id,
@@ -45,22 +45,22 @@ class Coins {
   });
 
   Coins copyWith({
-    int? id,
+    String? id,
     String? symbol,
     String? name,
     String? nameid,
     int? rank,
-    double? price_usd,
-    double? percent_change_24h,
-    double? percent_change_1h,
-    double? percent_change_7d,
-    double? price_btc,
-    double? market_cap_usd,
+    String? price_usd,
+    String? percent_change_24h,
+    String? percent_change_1h,
+    String? percent_change_7d,
+    String? price_btc,
+    String? market_cap_usd,
     double? volume24,
     double? volume24a,
-    double? csupply,
-    double? tsupply,
-    double? msupply,
+    String? csupply,
+    String? tsupply,
+    String? msupply,
   }) {
     return Coins(
       id: id ?? this.id,
