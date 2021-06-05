@@ -1,5 +1,12 @@
 import 'dart:convert';
 
+class CoinsModel {
+  static List<Coins> coin = [];
+
+  Coins getById(int id) =>
+      coin.firstWhere((element) => element.id == id, orElse: null);
+}
+
 class Coins {
   final int id;
   final String symbol;
