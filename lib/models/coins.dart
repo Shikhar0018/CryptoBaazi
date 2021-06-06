@@ -3,7 +3,7 @@
 class CoinsModel {
   static List<Coins> coin = [];
 
-  Coins getById(int rank) =>
+  Coins getByRank(int rank) =>
       coin.firstWhere((element) => element.rank == rank, orElse: null);
 }
 
