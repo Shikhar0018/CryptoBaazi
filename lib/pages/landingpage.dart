@@ -27,9 +27,12 @@ class _LandingPageState extends State<LandingPage> {
 
     final decodedData = jsonDecode(coinsJson);
     var coinsData = decodedData["data"];
-    CoinsModel.coin =
-        List.from(coinsData).map<Coins>((coin) => Coins.fromMap(coin)).toList();
-    setState(() {});
+    try {
+      CoinsModel.coin = List.from(coinsData)
+          .map<Coins>((coin) => Coins.fromMap(coin))
+          .toList();
+      setState(() {});
+    } catch (e) {}
   }
 
   @override

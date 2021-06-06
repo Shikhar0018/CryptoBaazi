@@ -8,7 +8,7 @@ class CoinsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      scrollDirection: Axis.horizontal,
+      //scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       itemCount: CoinsModel.coin.length,
       itemBuilder: (context, index) {

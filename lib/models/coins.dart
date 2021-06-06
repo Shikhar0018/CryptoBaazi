@@ -1,10 +1,10 @@
-import 'dart:convert';
+//import 'dart:convert';
 
 class CoinsModel {
   static List<Coins> coin = [];
 
-  Coins getById(int id) =>
-      coin.firstWhere((element) => element.id == id, orElse: null);
+  Coins getById(int rank) =>
+      coin.firstWhere((element) => element.rank == rank, orElse: null);
 }
 
 class Coins {
@@ -19,11 +19,11 @@ class Coins {
   final String percent_change_7d;
   final String price_btc;
   final String market_cap_usd;
-  final double volume24;
-  final double volume24a;
-  final String csupply;
-  final String tsupply;
-  final String msupply;
+  final num volume24;
+  final num volume24a;
+  //final String csupply;
+  //final String tsupply;
+  //final String msupply;
 
   Coins({
     required this.id,
@@ -39,144 +39,32 @@ class Coins {
     required this.market_cap_usd,
     required this.volume24,
     required this.volume24a,
-    required this.csupply,
-    required this.tsupply,
-    required this.msupply,
+    //required this.csupply,
+    //required this.tsupply,
+    //required this.msupply,
   });
 
-  Coins copyWith({
-    String? id,
-    String? symbol,
-    String? name,
-    String? nameid,
-    int? rank,
-    String? price_usd,
-    String? percent_change_24h,
-    String? percent_change_1h,
-    String? percent_change_7d,
-    String? price_btc,
-    String? market_cap_usd,
-    double? volume24,
-    double? volume24a,
-    String? csupply,
-    String? tsupply,
-    String? msupply,
-  }) {
+  factory Coins.fromMap(Map<String, dynamic> json) {
     return Coins(
-      id: id ?? this.id,
-      symbol: symbol ?? this.symbol,
-      name: name ?? this.name,
-      nameid: nameid ?? this.nameid,
-      rank: rank ?? this.rank,
-      price_usd: price_usd ?? this.price_usd,
-      percent_change_24h: percent_change_24h ?? this.percent_change_24h,
-      percent_change_1h: percent_change_1h ?? this.percent_change_1h,
-      percent_change_7d: percent_change_7d ?? this.percent_change_7d,
-      price_btc: price_btc ?? this.price_btc,
-      market_cap_usd: market_cap_usd ?? this.market_cap_usd,
-      volume24: volume24 ?? this.volume24,
-      volume24a: volume24a ?? this.volume24a,
-      csupply: csupply ?? this.csupply,
-      tsupply: tsupply ?? this.tsupply,
-      msupply: msupply ?? this.msupply,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'symbol': symbol,
-      'name': name,
-      'nameid': nameid,
-      'rank': rank,
-      'price_usd': price_usd,
-      'percent_change_24h': percent_change_24h,
-      'percent_change_1h': percent_change_1h,
-      'percent_change_7d': percent_change_7d,
-      'price_btc': price_btc,
-      'market_cap_usd': market_cap_usd,
-      'volume24': volume24,
-      'volume24a': volume24a,
-      'csupply': csupply,
-      'tsupply': tsupply,
-      'msupply': msupply,
-    };
-  }
-
-  factory Coins.fromMap(Map<String, dynamic> map) {
-    return Coins(
-      id: map['id'],
-      symbol: map['symbol'],
-      name: map['name'],
-      nameid: map['nameid'],
-      rank: map['rank'],
-      price_usd: map['price_usd'],
-      percent_change_24h: map['percent_change_24h'],
-      percent_change_1h: map['percent_change_1h'],
-      percent_change_7d: map['percent_change_7d'],
-      price_btc: map['price_btc'],
-      market_cap_usd: map['market_cap_usd'],
-      volume24: map['volume24'],
-      volume24a: map['volume24a'],
-      csupply: map['csupply'],
-      tsupply: map['tsupply'],
-      msupply: map['msupply'],
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Coins.fromJson(String source) => Coins.fromMap(json.decode(source));
-
-  @override
-  String toString() {
-    return 'Coins(id: $id, symbol: $symbol, name: $name, nameid: $nameid, rank: $rank, price_usd: $price_usd, percent_change_24h: $percent_change_24h, percent_change_1h: $percent_change_1h, percent_change_7d: $percent_change_7d, price_btc: $price_btc, market_cap_usd: $market_cap_usd, volume24: $volume24, volume24a: $volume24a, csupply: $csupply, tsupply: $tsupply, msupply: $msupply)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Coins &&
-        other.id == id &&
-        other.symbol == symbol &&
-        other.name == name &&
-        other.nameid == nameid &&
-        other.rank == rank &&
-        other.price_usd == price_usd &&
-        other.percent_change_24h == percent_change_24h &&
-        other.percent_change_1h == percent_change_1h &&
-        other.percent_change_7d == percent_change_7d &&
-        other.price_btc == price_btc &&
-        other.market_cap_usd == market_cap_usd &&
-        other.volume24 == volume24 &&
-        other.volume24a == volume24a &&
-        other.csupply == csupply &&
-        other.tsupply == tsupply &&
-        other.msupply == msupply;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-        symbol.hashCode ^
-        name.hashCode ^
-        nameid.hashCode ^
-        rank.hashCode ^
-        price_usd.hashCode ^
-        percent_change_24h.hashCode ^
-        percent_change_1h.hashCode ^
-        percent_change_7d.hashCode ^
-        price_btc.hashCode ^
-        market_cap_usd.hashCode ^
-        volume24.hashCode ^
-        volume24a.hashCode ^
-        csupply.hashCode ^
-        tsupply.hashCode ^
-        msupply.hashCode;
+        id: json['id'],
+        symbol: json['symbol'],
+        name: json['name'],
+        nameid: json['nameid'],
+        rank: json['rank'],
+        price_usd: json['price_usd'],
+        percent_change_24h: json['percent_change_24h'],
+        percent_change_1h: json['percent_change_1h'],
+        percent_change_7d: json['percent_change_7d'],
+        price_btc: json['price_btc'],
+        market_cap_usd: json['market_cap_usd'],
+        volume24: json['volume24'],
+        volume24a: json['volume24a']
+        //csupply: json['csupply'],
+        //tsupply: json['tsupply'],
+        //msupply: json['msupply']
+        );
   }
 }
-
 // { Dummy Result data from api
 //   "data": [
 //     {
