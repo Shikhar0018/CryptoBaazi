@@ -25,24 +25,32 @@ class CoinsList extends StatelessWidget {
 
 class CoinItem extends StatelessWidget {
   final Coins catalog;
-  const CoinItem({Key? key, required this.catalog})
-      : assert(catalog != null),
-        super(key: key);
+  const CoinItem({Key? key, required this.catalog}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-        child: Row(
-      children: [
-        Expanded(
-            child: Column(
+      child: Container(
+        //color: context.cardColor,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: context.cardColor,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            catalog.symbol.text.bold.make(),
+            ListTile(
+              title: catalog.name.text.bold
+                  .color(context.theme.buttonColor)
+                  .make(),
+              subtitle: catalog.symbol.text.make(),
+              trailing: "\$${catalog.price_usd}".text.bold.make(),
+            )
           ],
-        ))
-      ],
-    ));
+        ),
+      ).p16(),
+    );
   }
 }
