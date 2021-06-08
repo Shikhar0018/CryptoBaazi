@@ -7,9 +7,12 @@ class CoinsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200, childAspectRatio: 3 / 2),
       //scrollDirection: Axis.horizontal,
       shrinkWrap: true,
+
       itemCount: CoinsModel.coin.length,
       itemBuilder: (context, index) {
         final catalog = CoinsModel.coin[index];
@@ -43,10 +46,11 @@ class CoinItem extends StatelessWidget {
           children: [
             ListTile(
               title: catalog.name.text.bold
+                  .size(12)
                   .color(context.theme.buttonColor)
                   .make(),
-              subtitle: catalog.symbol.text.make(),
-              trailing: "\$${catalog.price_usd}".text.bold.make(),
+              subtitle: catalog.symbol.text.size(8).make(),
+              trailing: "\$${catalog.price_usd}".text.size(10).bold.make(),
             )
           ],
         ),
