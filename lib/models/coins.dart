@@ -21,9 +21,9 @@ class Coins {
   final String market_cap_usd;
   final num volume24;
   final num volume24a;
-  //final String csupply;
-  //final String tsupply;
-  //final String msupply;
+  final String csupply;
+  final String tsupply;
+  final String msupply;
 
   Coins({
     required this.id,
@@ -39,31 +39,35 @@ class Coins {
     required this.market_cap_usd,
     required this.volume24,
     required this.volume24a,
-    //required this.csupply,
-    //required this.tsupply,
-    //required this.msupply,
+    this.csupply = "0",
+    this.tsupply = "0",
+    this.msupply = "0",
   });
 
   factory Coins.fromMap(Map<String, dynamic> json) {
     return Coins(
-        id: json['id'],
-        symbol: json['symbol'],
-        name: json['name'],
-        nameid: json['nameid'],
-        rank: json['rank'],
-        price_usd: json['price_usd'],
-        percent_change_24h: json['percent_change_24h'],
-        percent_change_1h: json['percent_change_1h'],
-        percent_change_7d: json['percent_change_7d'],
-        price_btc: json['price_btc'],
-        market_cap_usd: json['market_cap_usd'],
-        volume24: json['volume24'],
-        volume24a: json['volume24a']
-        //csupply: json['csupply'],
-        //tsupply: json['tsupply'],
-        //msupply: json['msupply']
-        );
+      id: json['id'],
+      symbol: json['symbol'],
+      name: json['name'],
+      nameid: json['nameid'],
+      rank: json['rank'],
+      price_usd: json['price_usd'],
+      percent_change_24h: json['percent_change_24h'],
+      percent_change_1h: json['percent_change_1h'],
+      percent_change_7d: json['percent_change_7d'],
+      price_btc: json['price_btc'],
+      market_cap_usd: json['market_cap_usd'],
+      volume24: json['volume24'],
+      volume24a: json['volume24a'],
+      //csupply: json['csupply'],
+      //tsupply: json['tsupply'],
+      //msupply: json['msupply']
+    );
   }
+
+  get dateTime => null;
+
+  get price => null;
 }
 // { Dummy Result data from api
 //   "data": [
