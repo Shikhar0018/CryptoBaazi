@@ -30,20 +30,19 @@ class _MainBarState extends State<MainBar> {
         backgroundColor: context.cardColor,
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
+        selectedIconTheme: IconThemeData(color: Colors.red),
+        unselectedIconTheme: IconThemeData(color: context.accentColor),
         currentIndex: _selectedPageIndex,
         items: [
           // BottomNavigationBarItem(
           //   icon: Icon(CupertinoIcons.compass_fill, color: context.accentColor),
           // ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded, color: context.accentColor),
-              label: "Home"),
+              icon: Icon(Icons.home_rounded), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.heart, color: context.accentColor),
-              label: "Favorites"),
+              icon: Icon(CupertinoIcons.heart_fill), label: "Favorites"),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.settings, color: context.accentColor),
-              label: "Settings"),
+              icon: Icon(CupertinoIcons.settings), label: "Settings"),
           // BottomNavigationBarItem(
           //   icon: Icon(CupertinoIcons.graph_square, color: context.accentColor),
           // )
