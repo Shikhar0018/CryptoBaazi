@@ -1,5 +1,6 @@
-import 'package:cryptobaazi/pages/landingpage.dart';
-import 'package:cryptobaazi/pages/settings.dart';
+import '/pages/favorites.dart';
+import '/pages/landingpage.dart';
+import '/pages/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -12,7 +13,7 @@ class MainBar extends StatefulWidget {
 }
 
 class _MainBarState extends State<MainBar> {
-  final List<Widget> _pages = [LandingPage(), SettingsPage()];
+  final List<Widget> _pages = [LandingPage(), FavoritesPage(), SettingsPage()];
   int _selectedPageIndex = 0;
   void _selectPage(int index) {
     setState(() {
@@ -36,10 +37,13 @@ class _MainBarState extends State<MainBar> {
           // ),
           BottomNavigationBarItem(
               icon: Icon(Icons.home_rounded, color: context.accentColor),
-              title: Text("Home")),
+              label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.heart, color: context.accentColor),
+              label: "Favorites"),
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.settings, color: context.accentColor),
-              title: Text("Settings ")),
+              label: "Settings"),
           // BottomNavigationBarItem(
           //   icon: Icon(CupertinoIcons.graph_square, color: context.accentColor),
           // )
