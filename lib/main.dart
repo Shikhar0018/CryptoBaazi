@@ -2,6 +2,7 @@ import 'package:cryptobaazi/pages/landingpage.dart';
 import 'package:cryptobaazi/pages/settings.dart';
 import 'package:cryptobaazi/themes/themes.dart';
 import 'package:cryptobaazi/utils/routes.dart';
+import 'package:cryptobaazi/widgets/homepage_widgets/mainBar.dart';
 import 'package:flutter/material.dart';
 
 import 'utils/routes.dart';
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: MyRoutes.landingRoute,
+      initialRoute: "/",
       routes: {
         MyRoutes.landingRoute: (context) => LandingPage(),
         MyRoutes.settingsRoute: (context) => SettingsPage(),
+        "/": (context) => MainBar(),
       },
     );
   }
