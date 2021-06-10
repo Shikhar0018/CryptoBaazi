@@ -34,6 +34,7 @@ class CoinItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
+        //padding: const EdgeInsets.all(2),
         //color: context.cardColor,
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
@@ -45,6 +46,7 @@ class CoinItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ListTile(
+              onTap: () => {},
               title: catalog.name.text.bold
                   .size(12)
                   .color(context.theme.buttonColor)
