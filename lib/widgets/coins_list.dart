@@ -1,4 +1,5 @@
 import 'package:cryptobaazi/models/coins.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -47,6 +48,15 @@ class CoinItem extends StatelessWidget {
           children: [
             ListTile(
               onTap: () => {},
+              leading: FloatingActionButton(
+                child: Icon(
+                  CupertinoIcons.heart_fill,
+                  color: Colors.red,
+                ),
+                onPressed: () {
+                  print("Added to fav");
+                },
+              ),
               title: catalog.name.text.bold
                   .size(12)
                   .color(context.theme.buttonColor)
