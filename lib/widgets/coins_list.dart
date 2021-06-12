@@ -9,8 +9,8 @@ class CoinsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200, childAspectRatio: 3 / 2),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, childAspectRatio: 3 / 2),
       //scrollDirection: Axis.horizontal,
       shrinkWrap: true,
 
@@ -33,38 +33,17 @@ class CoinItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        //padding: const EdgeInsets.all(2),
-        //color: context.cardColor,
-        decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: context.cardColor,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ListTile(
-              onTap: () => {},
-              leading: FloatingActionButton(
-                child: Icon(
-                  CupertinoIcons.heart_fill,
-                  color: Colors.red,
-                ),
-                onPressed: () {
-                  print("Added to fav");
-                },
-              ),
-              title: catalog.name.text.bold
-                  .size(12)
-                  .color(context.theme.buttonColor)
-                  .make(),
-              subtitle: catalog.symbol.text.size(8).make(),
-              trailing: "\$${catalog.price_usd}".text.size(10).bold.make(),
-            )
-          ],
+    return Scaffold(
+      body: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        child: ListTile(
+          onTap: () => {},
+          title: catalog.name.text.bold
+              .size(12)
+              .color(context.theme.buttonColor)
+              .make(),
+          subtitle: catalog.symbol.text.size(8).make(),
+          trailing: "\$${catalog.price_usd}".text.size(10).bold.make(),
         ),
       ).p16(),
     );
