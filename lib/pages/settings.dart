@@ -2,9 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
+  @override
+  _SettingsPageState createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  bool _isDark = false;
   @override
   Widget build(BuildContext context) {
     Widget buildListTile(String title, Function userFunction) {
@@ -50,7 +56,15 @@ class SettingsPage extends StatelessWidget {
                     child: Column(
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        buildListTile("Theme Mode", () {}),
+                        SwitchListTile(
+                          value: _isDark,
+                          title: "Dark Mode".text.size(13).make(),
+                          onChanged: (newValue) {
+                            setState(() {
+                              _isDark = newValue;
+                            });
+                          },
+                        ),
                         buildListTile("Launch Screen", () {})
                       ], // Add tiles Within cards
                     ),
