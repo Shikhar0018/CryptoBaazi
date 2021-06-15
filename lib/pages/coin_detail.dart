@@ -1,6 +1,7 @@
-import 'package:cryptobaazi/models/coins.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'package:cryptobaazi/models/coins.dart';
 
 class Coin_Detail extends StatefulWidget {
   final Coins catalog;
@@ -17,9 +18,7 @@ class _Coin_DetailState extends State<Coin_Detail> {
       child: Scaffold(
         appBar: AppBar(
           title: widget.catalog.name.text.makeCentered(),
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border))
-          ],
+          actions: [FavoriteButton()],
         ),
         body: Container(
           child: Column(
@@ -44,5 +43,38 @@ class _Coin_DetailState extends State<Coin_Detail> {
         ),
       ),
     );
+  }
+}
+
+class FavoriteButton extends StatefulWidget {
+  //final Coins catalog;
+  const FavoriteButton({
+    Key? key,
+    //required this.catalog,
+  }) : super(key: key);
+
+  @override
+  _FavoriteButtonState createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  bool isAdded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          isAdded = isAdded.toggle();
+          //final _coin = CoinsModel();
+          //final _favorite = FavoritesModel();
+          // _favorite.add(_coin);
+          setState(() {});
+        },
+        icon: isAdded
+            ? Icon(
+                Icons.favorite,
+                color: Colors.red,
+              )
+            : Icon(Icons.favorite_border));
   }
 }
