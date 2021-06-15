@@ -58,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       children: [
                         SwitchListTile(
                           value: _isDark,
-                          title: "Dark Mode".text.make(),
+                          title: "Dark Mode".text.size(13).make(),
                           onChanged: (newValue) {
                             setState(() {
                               _isDark = newValue;

@@ -1,4 +1,5 @@
 import 'package:cryptobaazi/models/coins.dart';
+import 'package:cryptobaazi/pages/coin_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -18,6 +19,7 @@ class CoinsList extends StatelessWidget {
       itemBuilder: (context, index) {
         final catalog = CoinsModel.coin[index];
         return InkWell(
+          //onTap: () =>
           child: CoinItem(
             catalog: catalog,
           ),
@@ -37,7 +39,10 @@ class CoinItem extends StatelessWidget {
       body: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: ListTile(
-          onTap: () => {},
+          onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Coin_Detail(catalog: catalog))),
           title: catalog.name.text.bold
               .size(12)
               .color(context.theme.buttonColor)

@@ -1,3 +1,4 @@
+import 'package:cryptobaazi/pages/coin_detail.dart';
 import 'package:cryptobaazi/pages/landingpage.dart';
 import 'package:cryptobaazi/pages/settings.dart';
 import 'package:cryptobaazi/themes/themes.dart';
