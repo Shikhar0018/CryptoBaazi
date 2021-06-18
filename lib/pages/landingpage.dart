@@ -31,6 +31,7 @@ class _LandingPageState extends State<LandingPage> {
       CoinsModel.coin = List.from(coinsData)
           .map<Coins>((coin) => Coins.fromMap(coin))
           .toList();
+      setState(() {});
     } catch (e) {}
   }
 

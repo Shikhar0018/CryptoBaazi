@@ -32,6 +32,7 @@ class _MainBarState extends State<MainBar> {
         selectedItemColor: Theme.of(context).accentColor,
         selectedIconTheme: IconThemeData(color: Colors.red),
         unselectedIconTheme: IconThemeData(color: context.accentColor),
+        showUnselectedLabels: false,
         currentIndex: _selectedPageIndex,
         items: [
           // BottomNavigationBarItem(
