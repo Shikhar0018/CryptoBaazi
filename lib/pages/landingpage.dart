@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:cryptobaazi/models/coins.dart';
 import 'package:cryptobaazi/widgets/coins_list.dart';
-//import 'package:cryptobaazi/widgets/homepage_widgets/mainBar.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:http/http.dart' as http;
@@ -28,9 +26,8 @@ class _LandingPageState extends State<LandingPage> {
     final decodedData = jsonDecode(coinsJson);
     var coinsData = decodedData["data"];
     try {
-      CoinsModel.coin = List.from(coinsData)
-          .map<Coins>((coin) => Coins.fromMap(coin))
-          .toList();
+      CoinsModel.coin =
+          List.from(coinsData).map<Coin>((coin) => Coin.fromMap(coin)).toList();
       setState(() {});
     } catch (e) {}
   }
@@ -39,6 +36,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       //bottomNavigationBar: MainBar(),
+
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

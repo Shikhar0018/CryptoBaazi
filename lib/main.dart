@@ -1,15 +1,21 @@
-import 'package:cryptobaazi/pages/coin_detail.dart';
 import 'package:cryptobaazi/pages/landingpage.dart';
 import 'package:cryptobaazi/pages/settings.dart';
+import 'package:cryptobaazi/providers/coins_provider.dart';
 import 'package:cryptobaazi/themes/themes.dart';
 import 'package:cryptobaazi/utils/routes.dart';
 import 'package:cryptobaazi/widgets/homepage_widgets/mainBar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'utils/routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => CoinIt())],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
